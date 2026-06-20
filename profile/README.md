@@ -67,10 +67,11 @@ if r.HasError() {
 | [`symbol`](https://github.com/go-composites/symbol) | `github.com/go-composites/symbol/src` | An interned, immutable identifier (Ruby-style `:name`): `New("x") == New("x")`. |
 | [`time`](https://github.com/go-composites/time) | `github.com/go-composites/time/src` | A `Time` (+ `Duration` subpackage) composite; `Parse` returns a `result`, `Before`/`After`/`Add`/`Sub`, never a panic. |
 | [`proc`](https://github.com/go-composites/proc) | `github.com/go-composites/proc/src` | A first-class callable: `Call`/`Then` (railway-style), short-circuits on an error `result`. |
+| [`enumerator`](https://github.com/go-composites/enumerator) | `github.com/go-composites/enumerator/src` | A **lazy** sequence (Ruby `Enumerator::Lazy`): lazy `Map`/`Filter`/`Take` over a finite or **infinite** source, with `result`-based `ToArray`/`Each`/`First`/`Reduce` terminals. |
 | [`null`](https://github.com/go-composites/null) | `github.com/go-composites/null/src` | The null sentinel value used as the default `result` payload. |
 | [`result`](https://github.com/go-composites/result) | `github.com/go-composites/result/src` | Wraps a `payload` plus an `error`, built with functional options. |
 | [`compose`](https://github.com/go-composites/compose) | `github.com/go-composites/compose/src` | `Pipe`/`Run` compose `result`-returning steps into a single left-to-right, short-circuiting pipeline (`Then`/`Map`/`Recover`/`Fail`). |
-| [`composites`](https://github.com/go-composites/composites) | `github.com/go-composites/composites` | **Meta-package**: one import re-exporting the whole vocabulary (Array, Boolean, String, Number, Dictionary, Set, Range, Pair, Symbol, Time, Proc, Result, Error, Null) as type aliases + constructors. |
+| [`composites`](https://github.com/go-composites/composites) | `github.com/go-composites/composites` | **Meta-package**: one import re-exporting the whole vocabulary (Array, Boolean, String, Number, Dictionary, Set, Range, Pair, Symbol, Time, Proc, Enumerator, Result, Error, Null) as type aliases + constructors. |
 | [`typed`](https://github.com/go-composites/typed) | `github.com/go-composites/typed/src/...` | A **generics** parallel track: `Result[T]`, `Optional[T]`, `Slice[T]` — the same patterns with compile-time type safety (payload-type bugs become build errors). Complementary to, not a replacement for, the dynamic composites. |
 
 ### Invariant enforcers (static analyzers)
