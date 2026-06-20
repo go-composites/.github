@@ -58,16 +58,21 @@ if r.HasError() {
 | [`boolean`](https://github.com/go-composites/boolean) | `github.com/go-composites/boolean/src` | A boxed boolean composite. |
 | [`error`](https://github.com/go-composites/error) | `github.com/go-composites/error/src` | The `Error` interface (`Message`/`IsNull`) plus null and `method-not-implemented` sentinels. |
 | [`string`](https://github.com/go-composites/string) | `github.com/go-composites/string/src` | A boxed string value with `Set`/`ToGoString`/`Split`. |
-| [`array`](https://github.com/go-composites/array) | `github.com/go-composites/array/src` | Interface-first slice with `Push`/`Pop`/`First`/`Fetch`/`Each`; every method returns a `result`. |
+| [`number`](https://github.com/go-composites/number) | `github.com/go-composites/number/src` | A boxed numeric value (int/float) with arithmetic that returns a `result` (division by zero → an error, never a panic). |
+| [`array`](https://github.com/go-composites/array) | `github.com/go-composites/array/src` | Interface-first slice with `Push`/`Pop`/`First`/`Fetch`/`Each` **plus combinators** `Map`/`Filter`/`Reduce`/`Find`/`Any`/`All`; every method returns a `result`. |
+| [`dictionary`](https://github.com/go-composites/dictionary) | `github.com/go-composites/dictionary/src` | An interface-first key/value map; `Get` of a missing key returns a `result` error, never a panic. |
 | [`null`](https://github.com/go-composites/null) | `github.com/go-composites/null/src` | The null sentinel value used as the default `result` payload. |
 | [`result`](https://github.com/go-composites/result) | `github.com/go-composites/result/src` | Wraps a `payload` plus an `error`, built with functional options. |
-| [`is`](https://github.com/go-composites/is) | `github.com/go-composites/is/src` | Predicate helpers for asking questions about composites. |
+| [`compose`](https://github.com/go-composites/compose) | `github.com/go-composites/compose/src` | `Pipe`/`Run` compose `result`-returning steps into a single left-to-right, short-circuiting pipeline (`Then`/`Map`/`Recover`/`Fail`). |
+| [`composites`](https://github.com/go-composites/composites) | `github.com/go-composites/composites` | **Meta-package**: one import re-exporting the whole vocabulary (Array, Boolean, String, Number, Dictionary, Result, Error, Null) as type aliases + constructors. |
+| [`typed`](https://github.com/go-composites/typed) | `github.com/go-composites/typed/src/...` | A **generics** parallel track: `Result[T]`, `Optional[T]`, `Slice[T]` — the same patterns with compile-time type safety (payload-type bugs become build errors). Complementary to, not a replacement for, the dynamic composites. |
 
 ### Invariant enforcers (static analyzers)
 
 | Repo | Role |
 | --- | --- |
 | [`nonnil`](https://github.com/go-composites/nonnil) | A `go vet`-style analyzer that enforces the **Null-Object** invariant — fails the build when an interface with `IsNull()` is returned, assigned, stored in a struct field or map value as a bare `nil`. Runs in CI on every repo. |
+| [`respondto`](https://github.com/go-composites/respondto) | A `go vet`-style analyzer for **reflective dispatch** — flags `RespondTo`/method-name calls whose target method does not exist, catching typo'd dynamic sends at build time. |
 
 ## Conventions
 
