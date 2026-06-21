@@ -60,6 +60,8 @@ if r.HasError() {
 | [`string`](https://github.com/go-composites/string) | `github.com/go-composites/string/src` | A boxed string value with `Set`/`ToGoString`/`Split`. |
 | [`number`](https://github.com/go-composites/number) | `github.com/go-composites/number/src` | A boxed numeric value (int/float) with arithmetic that returns a `result` (division by zero → an error, never a panic). |
 | [`bignumber`](https://github.com/go-composites/bignumber) | `github.com/go-composites/bignumber/src` | An **arbitrary-precision** integer (`math/big`, Ruby's unbounded `Integer`); same `result`-based arithmetic (`Add`/`Sub`/`Mul`/`Div`/`Mod`/`Abs`/`Neg`) + comparisons. |
+| [`rational`](https://github.com/go-composites/rational) | `github.com/go-composites/rational/src` | An **exact rational** (`math/big.Rat`, Ruby's `Rational`): `FromInts`/`FromString`, `Numerator`/`Denominator`/`ToFloat`, `result`-based arithmetic + comparisons. |
+| [`complex`](https://github.com/go-composites/complex) | `github.com/go-composites/complex/src` | A **complex number** `a+bi` (Ruby's `Complex`): `Real`/`Imaginary`/`Abs`/`Conjugate`, `result`-based arithmetic (÷ by `0+0i` is an error). |
 | [`array`](https://github.com/go-composites/array) | `github.com/go-composites/array/src` | Interface-first slice with `Push`/`Pop`/`First`/`Fetch`/`Each` **plus combinators** `Map`/`Filter`/`Reduce`/`Find`/`Any`/`All`; every method returns a `result`. |
 | [`dictionary`](https://github.com/go-composites/dictionary) | `github.com/go-composites/dictionary/src` | An interface-first key/value map; `Get` of a missing key returns a `result` error, never a panic. |
 | [`set`](https://github.com/go-composites/set) | `github.com/go-composites/set/src` | An unordered unique collection: `Add`/`Delete`/`Has`/`Union`/`Intersection`/`Difference`/`IsSubset` + Null-Object. |
@@ -73,7 +75,7 @@ if r.HasError() {
 | [`null`](https://github.com/go-composites/null) | `github.com/go-composites/null/src` | The null sentinel value used as the default `result` payload. |
 | [`result`](https://github.com/go-composites/result) | `github.com/go-composites/result/src` | Wraps a `payload` plus an `error`, built with functional options. |
 | [`compose`](https://github.com/go-composites/compose) | `github.com/go-composites/compose/src` | `Pipe`/`Run` compose `result`-returning steps into a single left-to-right, short-circuiting pipeline (`Then`/`Map`/`Recover`/`Fail`). |
-| [`composites`](https://github.com/go-composites/composites) | `github.com/go-composites/composites` | **Meta-package**: one import re-exporting the whole vocabulary (Array, Boolean, String, Number, Dictionary, Set, Range, Pair, Symbol, Time, Proc, Enumerator, BigNumber, OrderedSet, Result, Error, Null) as type aliases + constructors. |
+| [`composites`](https://github.com/go-composites/composites) | `github.com/go-composites/composites` | **Meta-package**: one import re-exporting the whole vocabulary (Array, Boolean, String, Number, Dictionary, Set, Range, Pair, Symbol, Time, Proc, Enumerator, BigNumber, Rational, Complex, OrderedSet, Result, Error, Null) as type aliases + constructors. |
 | [`typed`](https://github.com/go-composites/typed) | `github.com/go-composites/typed/src/...` | A **generics** parallel track: `Result[T]`, `Optional[T]`, `Slice[T]` — the same patterns with compile-time type safety (payload-type bugs become build errors). Complementary to, not a replacement for, the dynamic composites. |
 
 ### Invariant enforcers (static analyzers)
