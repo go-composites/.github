@@ -69,6 +69,7 @@ if r.HasError() {
 | [`set`](https://github.com/go-composites/set) | `github.com/go-composites/set/src` | An unordered unique collection: `Add`/`Delete`/`Has`/`Union`/`Intersection`/`Difference`/`IsSubset` + Null-Object. |
 | [`orderedset`](https://github.com/go-composites/orderedset) | `github.com/go-composites/orderedset/src` | A **set that preserves insertion order** — same algebra as `set`, but deterministic iteration. |
 | [`sortedset`](https://github.com/go-composites/sortedset) | `github.com/go-composites/sortedset/src` | A **set sorted by a comparator** (TreeSet-like): sorted `Each`/`ToArray`, `First`/`Last` (min/max). |
+| [`bag`](https://github.com/go-composites/bag) | `github.com/go-composites/bag/src` | A **multiset / counter** (items with multiplicity): `Add`/`Remove`/`Count`/`Sum`/`Union`/`Intersection`/`Difference` — completes the set family. |
 | [`range`](https://github.com/go-composites/range) | `github.com/go-composites/range/src` | A numeric interval (inclusive `..` or exclusive `...`, stepped): `Includes`/`Each`/`ToArray`; `New` returns a `result`. |
 | [`pair`](https://github.com/go-composites/pair) | `github.com/go-composites/pair/src` | A two-element heterogeneous grouping (`First`/`Second`/`ToArray`) — the natural key/value entry. |
 | [`symbol`](https://github.com/go-composites/symbol) | `github.com/go-composites/symbol/src` | An interned, immutable identifier (Ruby-style `:name`): `New("x") == New("x")`. |
@@ -79,7 +80,7 @@ if r.HasError() {
 | [`null`](https://github.com/go-composites/null) | `github.com/go-composites/null/src` | The null sentinel value used as the default `result` payload. |
 | [`result`](https://github.com/go-composites/result) | `github.com/go-composites/result/src` | Wraps a `payload` plus an `error`, built with functional options. |
 | [`compose`](https://github.com/go-composites/compose) | `github.com/go-composites/compose/src` | `Pipe`/`Run` compose `result`-returning steps into a single left-to-right, short-circuiting pipeline (`Then`/`Map`/`Recover`/`Fail`). |
-| [`composites`](https://github.com/go-composites/composites) | `github.com/go-composites/composites` | **Meta-package**: one import re-exporting the whole vocabulary (Array, Boolean, String, Number, Dictionary, Set, Range, Pair, Symbol, Time, Date, Proc, Enumerator, BigNumber, Rational, Complex, BigFloat, OrderedSet, SortedSet, Buffer, Result, Error, Null) as type aliases + constructors. |
+| [`composites`](https://github.com/go-composites/composites) | `github.com/go-composites/composites` | **Meta-package**: one import re-exporting the whole vocabulary (Array, Boolean, String, Number, Dictionary, Set, Range, Pair, Symbol, Time, Date, Proc, Enumerator, BigNumber, Rational, Complex, BigFloat, OrderedSet, SortedSet, Bag, Buffer, Result, Error, Null) as type aliases + constructors. |
 | [`typed`](https://github.com/go-composites/typed) | `github.com/go-composites/typed/src/...` | A **generics** parallel track: `Result[T]`, `Optional[T]`, `Slice[T]` — the same patterns with compile-time type safety (payload-type bugs become build errors). Complementary to, not a replacement for, the dynamic composites. |
 
 ### Invariant enforcers (static analyzers)
