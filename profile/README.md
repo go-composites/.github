@@ -87,8 +87,8 @@ if r.HasError() {
 
 | Repo | Role |
 | --- | --- |
-| [`nonnil`](https://github.com/go-composites/nonnil) | A `go vet`-style analyzer that enforces the **Null-Object** invariant — fails the build when an interface with `IsNull()` is returned, assigned, stored in a struct field or map value as a bare `nil`. Runs in CI on every repo. |
-| [`respondto`](https://github.com/go-composites/respondto) | A `go vet`-style analyzer for **reflective dispatch** — flags `RespondTo`/method-name calls whose target method does not exist, catching typo'd dynamic sends at build time. |
+| [`nonnil`](https://github.com/go-vet-analyzers/nonnil) | A `go vet`-style analyzer that enforces the **Null-Object** invariant — fails the build when an interface with `IsNull()` is returned, assigned, stored in a struct field or map value as a bare `nil`. Runs in CI on every repo. |
+| [`respondto`](https://github.com/go-vet-analyzers/respondto) | A `go vet`-style analyzer for **reflective dispatch** — flags `RespondTo`/method-name calls whose target method does not exist, catching typo'd dynamic sends at build time. |
 
 ## Conventions
 
