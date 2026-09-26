@@ -90,6 +90,16 @@ if r.HasError() {
 | [`nonnil`](https://github.com/go-vet-analyzers/nonnil) | A `go vet`-style analyzer that enforces the **Null-Object** invariant — fails the build when an interface with `IsNull()` is returned, assigned, stored in a struct field or map value as a bare `nil`. Runs in CI on every repo. |
 | [`respondto`](https://github.com/go-vet-analyzers/respondto) | A `go vet`-style analyzer for **reflective dispatch** — flags `RespondTo`/method-name calls whose target method does not exist, catching typo'd dynamic sends at build time. |
 
+### What the style costs
+
+| Repo | Role |
+| --- | --- |
+| [`benchmarks`](https://github.com/go-composites/benchmarks) | Every operation run three ways — the composite, the Go a programmer would actually write, and Ruby MRI. Consistently slower than raw Go, from about **1.4×** on dictionary insert to about **121×** on a tight integer loop, because every operation boxes its operands into `interface{}` and allocates a `Result`. Where the composite is doing real container work it generally still beats MRI. |
+
+The point of that repository is to quantify the trade this organisation makes,
+not to flatter it — a page describing the style without the number somebody will
+eventually measure themselves is a page they stop trusting.
+
 ## Conventions
 
 - Module path: `module github.com/go-composites/<repo>`.
